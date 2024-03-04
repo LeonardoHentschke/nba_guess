@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id                        String   @id @default(cuid())
+  apiId                     Int
+  date                      DateTime
+  season                    Int
+  status                    String
+  visitor_team_score        Int
+  visitor_team_id           Int
+  visitor_team_conference   String
+  visitor_team_division     String
+  visitor_team_city         String
+  visitor_team_name         String
+  visitor_team_full_name    String
+  visitor_team_abbreviation String
+  home_team_score           Int
+  home_team_id              Int
+  home_team_conference      String
+  home_team_division        String
+  home_team_city            String
+  home_team_name            String
+  home_team_full_name       String
+  home_team_abbreviation    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
